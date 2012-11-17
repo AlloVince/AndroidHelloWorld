@@ -27,7 +27,7 @@ public class LoadingActivity extends Activity {
                 goIntent.setClass(LoadingActivity.this, MainActivity.class);
                 startActivity(goIntent);
             }
-        }, 3*1000);
+        }, 1*1000);
 	}
 
 }
