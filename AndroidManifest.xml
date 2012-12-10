@@ -28,6 +28,10 @@
             android:name=".NextActivity"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".YesnoActivity"
+            android:label="@string/app_name">
+        </activity>
 
     </application>
 

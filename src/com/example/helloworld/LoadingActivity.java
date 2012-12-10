@@ -24,7 +24,7 @@ public class LoadingActivity extends Activity {
             public void run() {
                 // TODO Auto-generated method stub
                 Intent goIntent = new Intent();
-                goIntent.setClass(LoadingActivity.this, MainActivity.class);
+                goIntent.setClass(LoadingActivity.this, NextActivity.class);
                 startActivity(goIntent);
             }
         }, 1*1000);

@@ -76,6 +76,9 @@ public class MainActivity extends Activity {
 	
 	private void setDataToView() {
 		try {
+			
+			radioGroup.clearCheck();
+			
 			JSONArray items = questions.getJSONArray("items");
 			JSONObject item = items.optJSONObject(questionIndex);
 			
@@ -121,7 +124,12 @@ public class MainActivity extends Activity {
 
 		nextBtnButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				onNextBtnClick();
+				try {
+					onNextBtnClick();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		});
@@ -156,9 +164,24 @@ public class MainActivity extends Activity {
 
 	}
 	
-	protected void onNextBtnClick() {
+	protected void onNextBtnClick() throws JSONException {
 		questionIndex++;
-		setDataToView();
+		
+		JSONArray items = questions.getJSONArray("items");
+		
+		if(questionIndex < items.length()){
+			setDataToView();
+		} else {
+			
+			Intent goIntent = new Intent();
+			goIntent.setClass(MainActivity.this, NextActivity.class);
+			try {
+				startActivity(goIntent);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 	/*
